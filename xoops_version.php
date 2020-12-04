@@ -26,9 +26,9 @@ $moduleDirName = basename(__DIR__);
 
 // ------------------- Informations ------------------- //
 $modversion = [
-    'version'             => 1.16,
-    'module_status'       => 'Beta 2',
-    'release_date'        => '2020/04/23',
+    'version'             => 1.26,
+    'module_status'       => 'Beta 1',
+    'release_date'        => '2020/12/04',
     'name'                => _MI_SMALLWORLD_MODULE_NAME,
     'description'         => _MI_SMALLWORLD_MODULE_DESC,
     'official'            => 0,
