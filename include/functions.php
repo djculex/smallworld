@@ -1411,7 +1411,7 @@ function smallworld_includeScripts()
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
-			$GLOBALS['xoTheme']->addScript($helper->url('assets/css/leaflet.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
             break;
         case 'publicindex':
@@ -1496,7 +1496,7 @@ function smallworld_includeScripts()
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
-			$GLOBALS['xoTheme']->addScript($helper->url('assets/css/leaflet.css'));			
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));			
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
             break;
         case 'smallworldshare':
@@ -1522,7 +1522,7 @@ function smallworld_includeScripts()
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
-			$GLOBALS['xoTheme']->addScript($helper->url('assets/css/leaflet.css'));			
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));			
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.countdown.js'));
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
             break;

@@ -488,7 +488,7 @@ xoops_smallworld(function () {
         if (smallworld_PageName == 'register.php' || smallworld_PageName == 'editprofile.php') {
             var sw_data;
             xoops_smallworld.ajax({
-                url: smallworld_url + "include/getSelects.php?" + Math.random(),
+                url: smallworld_url + "include/get_selects.php?" + Math.random(),
                 cache: false,
                 dataType: "json",
                 success: function (sw_data) {
@@ -1149,7 +1149,8 @@ function smallworld_getCountFriendMessagesEtcJS() {
 function smallworld_DoValStart() {
     xoops_smallworld(document).ready(function () {
         // Attact validation to registeration parts in register form
-        if (smallworldvalidationstrenght != 0) {
+		//alert(smallworldvalidationstrength);
+        if (smallworldvalidationstrength > 0) {
             xoops_smallworld("#smallworld_profileform-next-0").hide();
             xoops_smallworld("#smallworld_profileform-next-1").hide();
 
