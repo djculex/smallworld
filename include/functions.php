@@ -1390,13 +1390,6 @@ function smallworld_SetCoreScript()
     $script .= '}' . "\n";
     $GLOBALS['xoTheme']->addScript('', '', $script);
 
-    // Include geolocate styling
-    if (1 == $googlemaps) {
-        $GLOBALS['xoTheme']->addScript('https://maps.googleapis.com/maps/api/js?sensor=false&language=' . _LANGCODE);
-        $GLOBALS['xoTheme']->addScript($helper->url('assets/js/ui.geo_autocomplete.js'));
-        $GLOBALS['xoTheme']->addScript($helper->url('assets/js/ui.geo_autocomplete_now.js'));
-    }
-
     smallworld_includeScripts();
 }
 
@@ -1415,6 +1408,10 @@ function smallworld_includeScripts()
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.validation.functions.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.stepy.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.elastic.source.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/css/leaflet.css'));
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
             break;
         case 'publicindex':
@@ -1496,6 +1493,10 @@ function smallworld_includeScripts()
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.validation.functions.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.stepy.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.elastic.source.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/css/leaflet.css'));			
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
             break;
         case 'smallworldshare':
@@ -1518,6 +1519,10 @@ function smallworld_includeScripts()
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.bookmark.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.colorbox.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.elastic.source.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/css/leaflet.css'));			
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.countdown.js'));
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
             break;
