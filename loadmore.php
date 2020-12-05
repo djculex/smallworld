@@ -58,7 +58,7 @@ if ($GLOBALS['xoopsUser'] && ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
     $id       = $GLOBALS['xoopsUser']->uid();
     $username = $GLOBALS['xoopsUser']->uname();
     //$profile  = $check->checkIfProfile($id);
-    $profile  = $sWUserHandler->checkIfProfile($id);
+    $profile  = $swUserHandler->checkIfProfile($id);
     if ($isAdmin) {
         $pub = $swUserHandler->allUsers();
         /*

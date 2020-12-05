@@ -320,7 +320,7 @@ function smallworld_tolink($text, $uid)
     $ext2       = mb_substr($text, -5, 5);
     $xUser      = new \XoopsUser($uid);
     $xUserUname = $xUser->uname();
-    $gallery    = \XoopsModules\Smallworld\Helper::getInstance()->url('galleryshow.php?username=' . $xUserUname());
+    $gallery    = \XoopsModules\Smallworld\Helper::getInstance()->url('galleryshow.php?username=' . $xUserUname);
 
     if (in_array(strtolower($ext), ['.jpg', '.bmp', '.gif', '.png']) || in_array(strtolower($ext2), ['.jpeg'])) {
         if (false !== mb_strpos($text, 'UPLIMAGE')) {
