@@ -32,7 +32,7 @@ require_once $helper->path('include/functions.php');
 $GLOBALS['xoopsLogger']->activated = false;
 
 $friend        = Request::getInt('friend', 0, 'POST');
-$check         = new Smallworld\User();
+$check         = new Smallworld\SmallWorldUser();
 //$friendProfile = $check->checkIfProfile($friend);
 /** @var \XoopsModules\Smallworld\SwUserHandler $swUserHandler */
 $swUserHandler = $helper->getHandler('SwUser');
@@ -42,7 +42,7 @@ if (Constants::PROFILE_HAS_BOTH > $friendProfile) {
     $helper->redirect('index.php', 3, _SMALLWORLD_NOUSER_ERROR);
 }
 
-$swDB       = new Smallworld\SwDatabase();
+$swDB       = new Smallworld\SmallWorldDB();
 $mail       = new Smallworld\Mail();
 $stat       = Request::getInt('stat', 0, 'POST');
 $invitation = Request::getInt('invitation', 0, 'POST');

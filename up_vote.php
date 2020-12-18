@@ -35,7 +35,7 @@ require_once $helper->path('include/arrays.php');
 $GLOBALS['xoopsLogger']->activated = false;
 
 $wall = new Smallworld\WallUpdates();
-if ($GLOBALS['xoopsUser'] ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
+if ($GLOBALS['xoopsUser'] && ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
     if (Request::hasVar('id', 'POST')) {
         $id       = Request::getInt('id', 0, 'POST');
         $type     = $GLOBALS['xoopsDB']->escape($_POST['type']);
@@ -49,7 +49,7 @@ if ($GLOBALS['xoopsUser'] ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
                 echo "alert('" . _SMALLWORLD_JS_ALREADYVOTED . "');";
                 echo '</script>';
             } else {
-                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES ('', '" . $id . "', '0', '" . $userid . "', '" . $owner . "', '1', '0')";
+                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES (null, '" . $id . "', '0', '" . $userid . "', '" . $owner . "', '1', '0')";
                 $result = $GLOBALS['xoopsDB']->queryF($sql);
             }
             $newvote = $wall->countVotes($type, 'up', $id);
@@ -59,7 +59,7 @@ if ($GLOBALS['xoopsUser'] ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
             if ($hasvoted > 0) {
                 echo "<script type='text/javascript'>alert('" . _SMALLWORLD_JS_ALREADYVOTED . "');</script>";
             } else {
-                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES ('', '" . $id . "', '" . $type2 . "', '" . $userid . "', '" . $owner . "', '1', '0')";
+                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES (null, '" . $id . "', '" . $type2 . "', '" . $userid . "', '" . $owner . "', '1', '0')";
                 $result = $GLOBALS['xoopsDB']->queryF($sql);
             }
             $newvote = $wall->countVotesCom($type, 'up', $type2, $id);

@@ -488,7 +488,7 @@ xoops_smallworld(function () {
         if (smallworld_PageName == 'register.php' || smallworld_PageName == 'editprofile.php') {
             var sw_data;
             xoops_smallworld.ajax({
-                url: smallworld_url + "include/get_selects.php?" + Math.random(),
+                url: smallworld_url + "include/getSelects.php?" + Math.random(),
                 cache: false,
                 dataType: "json",
                 success: function (sw_data) {
@@ -791,7 +791,7 @@ xoops_smallworld(function () {
             attribution: '© OpenStreetMap'
         }).addTo(map);
         var marker = L.marker([lat, lon]).addTo(map);
-        var popup = marker.bindPopup(cityname);
+        var popup = marker.bindPopup(cityname_birth);
     }
 	
 	function doMapNow(lat, lon) {
@@ -800,7 +800,7 @@ xoops_smallworld(function () {
             attribution: '© OpenStreetMap'
         }).addTo(map);
         var marker = L.marker([lat, lon]).addTo(map);
-        var popup = marker.bindPopup(cityname);
+        var popup = marker.bindPopup(cityname_birth);
     }
 
     //Function to show images in present location input
@@ -1149,8 +1149,7 @@ function smallworld_getCountFriendMessagesEtcJS() {
 function smallworld_DoValStart() {
     xoops_smallworld(document).ready(function () {
         // Attact validation to registeration parts in register form
-		//alert(smallworldvalidationstrength);
-        if (smallworldvalidationstrength > 0) {
+        if (smallworldvalidationstrength != 0) {
             xoops_smallworld("#smallworld_profileform-next-0").hide();
             xoops_smallworld("#smallworld_profileform-next-1").hide();
 

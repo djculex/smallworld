@@ -69,5 +69,6 @@ class SmallworldCorePreload extends \XoopsPreloadItem
             $GLOBALS['xoTheme']->addScript(XOOPS_URL . '/modules/smallworld/language/english/js/jquery.countdown.js');
         }
         $GLOBALS['xoTheme']->addScript(XOOPS_URL . '/modules/smallworld/assets/js/smallworld.js');
+		//$GLOBALS['xoTheme']->addScript(XOOPS_URL . '/modules/smallworld/assets/js/domaps.js');
     }
 }

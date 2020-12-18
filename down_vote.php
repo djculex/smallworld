@@ -16,8 +16,9 @@
  * @license      GNU GPL (https://www.gnu.org/licenses/gpl-2.0.html/)
  * @copyright    The XOOPS Project (https://xoops.org)
  * @copyright    2011 Culex
- * @link         https://github.com/XoopsModules25x/smallworld
  * @author       Michael Albertsen (http://culex.dk) <culex@culex.dk>
+ * @link         https://github.com/XoopsModules25x/smallworld
+ * @since        1.0
  */
 
 use Xmf\Request;
@@ -32,6 +33,7 @@ require_once $helper->path('include/functions.php');
 require_once $helper->path('include/arrays.php');
 
 $GLOBALS['xoopsLogger']->activated = false;
+
 $wall                   = new Smallworld\WallUpdates();
 if ($GLOBALS['xoopsUser'] && ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
     if (Request::hasVar('id', 'POST')) {
@@ -47,7 +49,7 @@ if ($GLOBALS['xoopsUser'] && ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
                 echo "alert('" . _SMALLWORLD_JS_ALREADYVOTED . "');";
                 echo '</script>';
             } else {
-                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES ('', '" . $id . "', '0', '" . $userid . "', '" . $owner . "', '0', '1')";
+                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES (null, '" . $id . "', '0', '" . $userid . "', '" . $owner . "', '0', '1')";
                 $result = $GLOBALS['xoopsDB']->queryF($sql);
             }
             $newvote = $wall->countVotes($type, 'down', $id);
@@ -57,7 +59,7 @@ if ($GLOBALS['xoopsUser'] && ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
             if ($hasvoted > 0) {
                 echo "<script type='text/javascript'>alert('" . _SMALLWORLD_JS_ALREADYVOTED . "');</script>";
             } else {
-                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES ('', '" . $id . "', '" . $type2 . "', '" . $userid . "', '" . $owner . "', '0', '1')";
+                $sql    = 'INSERT INTO ' . $GLOBALS['xoopsDB']->prefix('smallworld_vote') . " (vote_id,msg_id,com_id,user_id,owner,up,down) VALUES (null, '" . $id . "', '" . $type2 . "', '" . $userid . "', '" . $owner . "', '0', '1')";
                 $result = $GLOBALS['xoopsDB']->queryF($sql);
             }
             $newvote = $wall->countVotesCom($type, 'down', $type2, $id);

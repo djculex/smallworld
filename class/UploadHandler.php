@@ -669,8 +669,9 @@ class UploadHandler
         $file->name = basename(stripslashes($name));
         $file->name = time() . mt_rand(0, 99999) . '.' . $this->getFileExtension($name);
         $img        = XOOPS_URL . '/uploads/albums_smallworld/' . $userid . '/' . $file->name;
-        $swDB->saveImage("'', '" . $userid . "', '" . $file->name . "', '" . addslashes($img) . "', '" . time() . "', ''");
-
+        $swDB->saveImage("null, '" . $userid . "', '" . $file->name . "', '" . addslashes($img) . "', '" . time() . "', ''");
+		//$swDB->saveImage("'1', '" . $userid . "', '" . $file->name . "', '" . addslashes($img) . "', '" . time() . "', '1'");
+		
         if ($this->validate($uploaded_file, $file, $error, $index)) {
             $this->handle_form_data($file, $index);
             $upload_dir = $this->get_upload_path();

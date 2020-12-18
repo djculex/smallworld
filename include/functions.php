@@ -316,11 +316,12 @@ function smallworld_time_stamp($session_time)
  */
 function smallworld_tolink($text, $uid)
 {
+	$helper = Helper::getInstance();
     $ext        = mb_substr($text, -4, 4);
     $ext2       = mb_substr($text, -5, 5);
     $xUser      = new \XoopsUser($uid);
     $xUserUname = $xUser->uname();
-    $gallery    = \XoopsModules\Smallworld\Helper::getInstance()->url('galleryshow.php?username=' . $xUserUname);
+    $gallery    = $helper->url('galleryshow.php?username=' . $xUserUname);
 
     if (in_array(strtolower($ext), ['.jpg', '.bmp', '.gif', '.png']) || in_array(strtolower($ext2), ['.jpeg'])) {
         if (false !== mb_strpos($text, 'UPLIMAGE')) {
@@ -1384,11 +1385,19 @@ function smallworld_SetCoreScript()
     $script .= "var smallworlduseverification = new Array();\n";
     $script .= "smallworlduseverification = smallworldVerString.split(',');\n";
     $script .= 'var Smallworld_hasmessages = ' . $count_invit . ";\n";
+	//smallworldvalidationstrenght
     $script .= 'var smallworldvalidationstrength = ' . $validate . ";\n";
     $script .= 'var smallworld_getFriendsMsgComCount = ' . $getUserMsgNum . ";\n";
     //$script .= "var $ = jQuery();\n";
     $script .= '}' . "\n";
     $GLOBALS['xoTheme']->addScript('', '', $script);
+
+    // Include geolocate styling
+    if (1 == $googlemaps) {
+        //$GLOBALS['xoTheme']->addScript('https://maps.googleapis.com/maps/api/js?sensor=false&language=' . _LANGCODE);
+        //$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
+        //$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
+    }
 
     smallworld_includeScripts();
 }
@@ -1408,11 +1417,13 @@ function smallworld_includeScripts()
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.validation.functions.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.stepy.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.elastic.source.js'));
+            $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/esri-leaflet-geocoder.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
-			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));
-            $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
+			
             break;
         case 'publicindex':
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.oembed.js'));
@@ -1493,11 +1504,13 @@ function smallworld_includeScripts()
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.validation.functions.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.stepy.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.elastic.source.js'));
+            $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/esri-leaflet-geocoder.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
 			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
-			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));			
-            $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
+		
             break;
         case 'smallworldshare':
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.oembed.js'));
@@ -1519,12 +1532,13 @@ function smallworld_includeScripts()
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.bookmark.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.colorbox.js'));
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.elastic.source.js'));
-			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));
-			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
-			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));
-			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));			
             $GLOBALS['xoTheme']->addScript($helper->url('assets/js/jquery.countdown.js'));
             $GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/smallworld.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/esri-leaflet-geocoder.css'));
+			$GLOBALS['xoTheme']->addStylesheet($helper->url('assets/css/leaflet.css'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/leaflet.js'));			
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_birth.js'));
+			$GLOBALS['xoTheme']->addScript($helper->url('assets/js/osm_now.js'));			
             break;
     }
 }

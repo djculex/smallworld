@@ -39,7 +39,7 @@ class Profile
             $myName = $GLOBALS['xoopsUser']->uname(); // My name
             $swDB   = new SwDatabase();
             $wall   = new WallUpdates();
-
+			$GLOBALS['xoopsLogger']->activated = true;
             /**
              * @var \XoopsModules\Smallworld\Helper $helper
              * @var \XoopsModules\Smallworld\SwUserHandler $swUserHandler
@@ -110,13 +110,16 @@ class Profile
                 $currlng     = $r['present_lng'];
                 $currlatt    = $r['present_lat'];
                 $currcountry = $r['present_country'];
+				$cityname	 = $r['birthplace'];
 
                 // experimental. Set javascript var using php getVar()
                 $js = "<script type='text/javascript'>";
                 $js .= 'var smallworld_currlng = ' . $currlng . "\n";
                 $js .= 'var smallworld_currlatt = ' . $currlatt . "\n";
+				//$js .= 'var smallworld_currcity = ' . $currentcity . "\n";
                 $js .= 'var smallworld_birthlng = ' . $lng . "\n";
                 $js .= 'var smallworld_birthlatt = ' . $latt . "\n";
+				$js .= "var cityname_birth = '" . $cityname . "'\n";
                 $js .= '</script>';
                 echo $js;
 

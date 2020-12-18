@@ -190,7 +190,6 @@ class SwUserHandler extends \XoopsPersistableObjectHandler
         $parts  = explode('.', $image);
         $ext    = (is_array($parts) && 0 < count($parts)) ? array_pop($parts) : '';
         $avatar = in_array(mb_strtolower($ext), $type) ? $image : '';
-
         return $avatar;
     }
     /**
@@ -208,7 +207,7 @@ class SwUserHandler extends \XoopsPersistableObjectHandler
         $link   = (preg_match('/avatars/i', $image)) ? XOOPS_UPLOAD_URL . '/' . $image : $image;
         $ext    = pathinfo(mb_strtolower($image), PATHINFO_EXTENSION);
 
-        if (in_array($ext, ['jpg', 'bmp', 'gif', 'png', 'jpeg']) || '' == $image || 'blank.gif' == $image) {
+        if (!in_array($ext, ['jpg', 'bmp', 'gif', 'png', 'jpeg']) || "" == $image || 'avatars/blank.gif' == $image) {
             switch ($gender) {
                 case Constants::FEMALE:
                     $pict = 'ano_woman.png';

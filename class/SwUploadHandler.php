@@ -150,7 +150,7 @@ class SwUploadHandler
         $img        = XOOPS_URL . '/uploads/albums_smallworld/' . $userid . '/' . $file->name;
 
         // Save to database for later use
-        $swDB->saveImage("'', '" . $userid . "', '" . $file->name . "', '" . addslashes($img) . "', '" . time() . "', ''");
+        $swDB->saveImage("null, '" . $userid . "', '" . $file->name . "', '" . addslashes($img) . "', '" . time() . "', ''");
 
         if (!$error && $file->name) {
             if ('.' === $file->name[0]) {

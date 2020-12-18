@@ -52,5 +52,5 @@ if ($GLOBALS['xoopsUser'] && ($GLOBALS['xoopsUser'] instanceof \XoopsUser)) {
         echo 'error';
     }
     // now restore the logger
-    $GLOBALS['xoopsLogger']->activated = $prevLogStat;
+    //$GLOBALS['xoopsLogger']->activated = $prevLogStat;
 }

@@ -35,7 +35,7 @@ $swDB->handlePosts();
 
 // Create user albums etc
 if ($GLOBALS['xoopsUser'] && $GLOBALS['xoopsUser'] instanceof \XoopsUser) {
-    $img    = new Smallworld\Images();
+    $img    = new Smallworld\SmallWorldImages();
     $userID = $GLOBALS['xoopsUser']->uid();
     if ('edit' !== $_POST['function']) {
         $img->createAlbum($userID);
