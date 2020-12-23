@@ -78,6 +78,7 @@ $menu_register = ($profile < Constants::PROFILE_HAS_BOTH) ? "<a href='" . $helpe
 
 $updatesarray = $wall->Updates(0, $pub);
 $wall->parsePubArray($updatesarray, $id);
+
 $GLOBALS['xoopsTpl']->assign(
     [
         'menu_home'     => $menu_home,
