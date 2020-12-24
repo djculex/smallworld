@@ -48,6 +48,3 @@ checks:
         instanceof_class_exists: true
         foreach_traversable: true
         no_unnecessary_function_call_in_for_loop: true
-		- name: Generate changelog
-		uses: heinrichreimer/action-github-changelog-generator@v2.2
-
