@@ -83,7 +83,7 @@ if ((window.location.href.indexOf("editprofile.php") > -1) || (window.location.h
 				console.log(d.properties.name);
                 var finalText = formatResultText(d.properties.name + ", " + d.properties.state + ", " + d.properties.country, searchText);
                 if (finalText) {
-                    //var iconHtml = '⚐&nbsp;';
+                    //var iconHtml = '?&nbsp;';
                     iconHtml = (d.icon != undefined) ? "<img src='" + d.icon + "'/> " : " ";
                     lat_birth += d.geometry.coordinates[1];
                     lon_birth += d.geometry.coordinates[0];
