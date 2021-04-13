@@ -1184,7 +1184,6 @@ function smallworld_getCountFriendMessagesEtcJS() {
     });
     setTimeout('smallworld_getCountFriendMessagesEtcJS()', 10000);
 }
-
 function smallworld_DoValStart() {
     xoops_smallworld(document).ready(function () {
         // Attact validation to registeration parts in register form
