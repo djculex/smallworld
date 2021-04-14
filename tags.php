@@ -89,7 +89,7 @@ if ($_GET) {
     $arr[] = 'Cuba';
     $arr[] = 'Cyprus';
     $arr[] = 'Czech Republic';
-    $arr[] = 'C�te d�Ivoire';
+    $arr[] = 'C?te d?Ivoire';
     $arr[] = 'Denmark';
     $arr[] = 'Djibouti';
     $arr[] = 'Dominica';
@@ -223,8 +223,8 @@ if ($_GET) {
     $arr[] = 'Romania';
     $arr[] = 'Russia';
     $arr[] = 'Rwanda';
-    $arr[] = 'R�union';
-    $arr[] = 'Saint Barth�lemy';
+    $arr[] = 'R?union';
+    $arr[] = 'Saint Barth?lemy';
     $arr[] = 'Saint Helena';
     $arr[] = 'Saint Kitts and Nevis';
     $arr[] = 'Saint Lucia';
@@ -256,7 +256,7 @@ if ($_GET) {
     $arr[] = 'Sweden';
     $arr[] = 'Switzerland';
     $arr[] = 'Syria';
-    $arr[] = 'S�o Tom� and Pr�ncipe';
+    $arr[] = 'S?o Tom? and Pr?ncipe';
     $arr[] = 'Taiwan';
     $arr[] = 'Tajikistan';
     $arr[] = 'Tanzania';
@@ -293,7 +293,7 @@ if ($_GET) {
     $arr[] = 'Yemen';
     $arr[] = 'Zambia';
     $arr[] = 'Zimbabwe';
-    $arr[] = '�land Islands';
+    $arr[] = '?land Islands';
 }
 
 /**
